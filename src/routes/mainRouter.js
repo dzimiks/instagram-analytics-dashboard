@@ -11,5 +11,6 @@ router.all('/*', function (req, res, next) {
 
 // GET
 router.get('/', mainController.home);
+router.get('/signin', mainController.signin);
 
 module.exports = router;

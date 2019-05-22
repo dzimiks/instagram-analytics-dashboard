@@ -1,5 +1,8 @@
+@import "login";
+
 $black-color: #333;
 $red-color: #f44336;
+$blue-color: #2196f3;
 
 * {
 	box-sizing: border-box;
@@ -10,7 +13,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #f2f2f2;
+	background-color: #fefefe;
 }
 
 body {
@@ -23,7 +26,7 @@ body {
 }
 
 a {
-	color: $red-color;
+	color: $blue-color;
 	-webkit-transition: color .2s cubic-bezier(.25, .46, .45, .94);
 	transition: color .2s cubic-bezier(.25, .46, .45, .94);
 }
@@ -66,10 +69,10 @@ a:hover {
 .navbar {
 	color: $black-color;
 	background-color: #fefefe;
-	border-bottom: 2px solid $red-color;
+	border-bottom: 2px solid $blue-color;
 
 	li > a {
-		color: $red-color !important;
+		color: $blue-color !important;
 
 		&:hover {
 			color: $black-color !important;
@@ -132,7 +135,7 @@ a:hover {
 .icon-bar {
 	width: 22px;
 	height: 2px;
-	background-color: $red-color;
+	background-color: $blue-color;
 	display: block;
 	transition: all 0.2s;
 	margin-top: 4px

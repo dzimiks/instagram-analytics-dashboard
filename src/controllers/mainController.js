@@ -5,3 +5,11 @@ module.exports.home = (req, res) => {
 		}
 	});
 };
+
+module.exports.signin = (req, res) => {
+	res.render('signin', {
+		meta: {
+			title: 'Sign In'
+		}
+	});
+};
