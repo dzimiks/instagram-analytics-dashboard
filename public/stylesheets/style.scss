@@ -1,0 +1,170 @@
+$black-color: #333;
+$red-color: #f44336;
+
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f2f2f2;
+}
+
+body {
+	min-width: 320px;
+	line-height: 1.52947;
+	font-weight: 400;
+	letter-spacing: -.021em;
+	color: $black-color;
+	font-style: normal;
+}
+
+a {
+	color: $red-color;
+	-webkit-transition: color .2s cubic-bezier(.25, .46, .45, .94);
+	transition: color .2s cubic-bezier(.25, .46, .45, .94);
+}
+
+a:hover {
+	color: $black-color;
+	text-decoration: none;
+}
+
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row-eq-height > [class*='col-'] {
+	display: flex;
+}
+
+.cut-text {
+	max-height: 120px;
+	position: relative;
+	overflow: hidden;
+
+	.read-more {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+		padding-top: 30px;
+		background-image: linear-gradient(to bottom, transparent, white);
+	}
+}
+
+// Navbar
+.navbar {
+	color: $black-color;
+	background-color: #fefefe;
+	border-bottom: 2px solid $red-color;
+
+	li > a {
+		color: $red-color !important;
+
+		&:hover {
+			color: $black-color !important;
+		}
+	}
+}
+
+.navbar .navbar-collapse {
+	text-align: center;
+}
+
+.navbar .navbar-toggler:focus,
+.navbar .navbar-toggler:hover {
+	background-color: transparent;
+}
+
+.navbar-toggler {
+	border: none;
+	background: transparent !important;
+
+	&:hover {
+		background: transparent !important;
+	}
+
+	.icon-bar {
+		width: 22px;
+		transition: all 0.2s;
+	}
+
+	.top-bar {
+		transform: rotate(45deg);
+		transform-origin: 10% 10%;
+	}
+
+	.middle-bar {
+		opacity: 0;
+	}
+
+	.bottom-bar {
+		transform: rotate(-45deg);
+		transform-origin: 10% 90%;
+	}
+}
+
+.navbar-toggler.collapsed {
+	.top-bar {
+		transform: rotate(0);
+	}
+
+	.middle-bar {
+		opacity: 1;
+	}
+
+	.bottom-bar {
+		transform: rotate(0);
+	}
+}
+
+// Hamburger icon animation
+.icon-bar {
+	width: 22px;
+	height: 2px;
+	background-color: $red-color;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px
+}
+
+.navbar-toggler {
+	border: none;
+	background: transparent !important;
+}
+
+.navbar-toggler .top-bar {
+	transform: rotate(45deg);
+	transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+	opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+	transform: rotate(-45deg);
+	transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+	transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+	opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+	transform: rotate(0);
+}
