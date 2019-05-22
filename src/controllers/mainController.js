@@ -13,3 +13,11 @@ module.exports.signin = (req, res) => {
 		}
 	});
 };
+
+module.exports.signup = (req, res) => {
+	res.render('signup', {
+		meta: {
+			title: 'Sign Up'
+		}
+	});
+};
