@@ -53,3 +53,27 @@ module.exports.analyticsExportsAndReports = (req, res) => {
 		}
 	});
 };
+
+module.exports.conversations = (req, res) => {
+	res.render('conversations', {
+		meta: {
+			title: 'Conversations'
+		}
+	});
+};
+
+module.exports.publishingPostScheduler = (req, res) => {
+	res.render('publishing/post-scheduler', {
+		meta: {
+			title: 'Publishing Post Scheduler'
+		}
+	});
+};
+
+module.exports.publishingTipsAndTricks = (req, res) => {
+	res.render('publishing/tips-and-tricks', {
+		meta: {
+			title: 'Publishing Tips And Tricks'
+		}
+	});
+};

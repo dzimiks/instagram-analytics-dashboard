@@ -11,12 +11,20 @@ router.all('/*', function (req, res, next) {
 
 // GET
 router.get('/', mainController.home);
+
+// Analytics
 router.get('/analytics/overview', mainController.analyticsOverview);
 router.get('/analytics/reach', mainController.analyticsReach);
 router.get('/analytics/engagement', mainController.analyticsEngagement);
-
 router.get('/analytics/profile-visits', mainController.analyticsProfileVisits);
 router.get('/analytics/hashtags', mainController.analyticsHashtags);
 router.get('/analytics/exports-and-reports', mainController.analyticsExportsAndReports);
+
+// Conversations
+router.get('/conversations', mainController.conversations);
+
+// Publishing
+router.get('/publishing/post-scheduler', mainController.publishingPostScheduler);
+router.get('/publishing/tips-and-tricks', mainController.publishingTipsAndTricks);
 
 module.exports = router;
