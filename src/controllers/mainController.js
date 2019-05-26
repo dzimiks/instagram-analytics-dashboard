@@ -6,18 +6,10 @@ module.exports.home = (req, res) => {
 	});
 };
 
-module.exports.signin = (req, res) => {
-	res.render('signin', {
+module.exports.analytics = (req, res) => {
+	res.render('analytics', {
 		meta: {
-			title: 'Sign In'
-		}
-	});
-};
-
-module.exports.signup = (req, res) => {
-	res.render('signup', {
-		meta: {
-			title: 'Sign Up'
+			title: 'Analytics'
 		}
 	});
 };

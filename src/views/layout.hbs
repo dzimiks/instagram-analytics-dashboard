@@ -27,9 +27,321 @@
 </head>
 <body>
 
-<div style="margin-top: 3rem;">
+<div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+	<nav id="sidebar" class="sidebar-wrapper">
+		<div class="sidebar-content">
+			<!-- sidebar-brand  -->
+			<div class="sidebar-item sidebar-brand text-center">
+				<a href="/">Instagram Analytics</a>
+			</div>
+			<!-- sidebar-header  -->
+			<div class="sidebar-item sidebar-header d-flex flex-nowrap">
+				<div class="user-pic">
+					<img class="img-fluid rounded-circle" src="images/dzimiks.jpg" alt="User picture">
+				</div>
+				<div class="user-info">
+                        <span class="user-name">
+							<strong>dzimiks</strong>
+                        </span>
+					<span class="user-role">Administrator</span>
+					<span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+				</div>
+			</div>
+			<!-- sidebar-search  -->
+			<div class="sidebar-item sidebar-search">
+				<div>
+					<div class="input-group">
+						<input type="text" class="form-control search-menu" placeholder="Search...">
+						<div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- sidebar-menu  -->
+			<div class=" sidebar-item sidebar-menu">
+				<ul>
+					<li class="header-menu">
+						<span>General</span>
+					</li>
+					<li>
+						<a href="/">
+							<i class="fa fa-th-large"></i>
+							<span class="menu-text">Dashboard</span>
+							<span class="badge badge-pill badge-warning">New</span>
+						</a>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="fa fa-chart-bar"></i>
+							<span class="menu-text">Analytics</span>
+							<span class="badge badge-pill badge-danger">3</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/analytics/overview">Overview</a>
+								</li>
+								<li>
+									<a href="/analytics/reach">Reach</a>
+								</li>
+								<li>
+									<a href="/analytics/engagement">Engagement</a>
+								</li>
+								<li>
+									<a href="/analytics/profile-visits">Profile Visits</a>
+								</li>
+								<li>
+									<a href="/analytics/hashtags">Hashtags</a>
+								</li>
+								<li>
+									<a href="/analytics/exports-and-reports">Exports and Reports</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/conversations">
+							<i class="far fa-comments"></i>
+							<span class="menu-text">Conversations</span>
+							<span class="badge badge-pill badge-success">7</span>
+						</a>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="fa fa-newspaper"></i>
+							<span class="menu-text">Publishing</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/publishing/post-scheduler">Post Scheduler</a>
+								</li>
+								<li>
+									<a href="/publishing/tips-and-tricks">Tips and Tricks</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="fa fa-search"></i>
+							<span class="menu-text">Search</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/search/users">Users</a>
+								</li>
+								<li>
+									<a href="/search/hashtags">Hashtags</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="fa fa-wrench"></i>
+							<span class="menu-text">Tools</span>
+							<span class="badge badge-pill badge-primary">Beta</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/tools/instagram-audit">Instagram Audit</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="header-menu">
+						<span>Extra</span>
+					</li>
+					<li>
+						<a href="/faq">
+							<i class="fa fa-question"></i>
+							<span class="menu-text">FAQ</span>
+						</a>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="fa fa-cog"></i>
+							<span class="menu-text">My Account</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/account/settings">Settings</a>
+								</li>
+								<li>
+									<a href="/account/social-profiles">Social Profiles</a>
+								</li>
+								<li>
+									<a href="/logout">Logout</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- sidebar-menu  -->
+		</div>
+		<!-- sidebar-footer  -->
+		<div class="sidebar-footer">
+			<div class="dropdown">
+
+				<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-bell"></i>
+					<span class="badge badge-pill badge-warning notification">3</span>
+				</a>
+				<div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
+					<div class="notifications-header">
+						<i class="fa fa-bell"></i>
+						Notifications
+					</div>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">
+						<div class="notification-content">
+							<div class="icon">
+								<i class="fas fa-check text-success border border-success"></i>
+							</div>
+							<div class="content">
+								<div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+								<div class="notification-time">
+									6 minutes ago
+								</div>
+							</div>
+						</div>
+					</a>
+					<a class="dropdown-item" href="#">
+						<div class="notification-content">
+							<div class="icon">
+								<i class="fas fa-exclamation text-info border border-info"></i>
+							</div>
+							<div class="content">
+								<div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+								<div class="notification-time">
+									Today
+								</div>
+							</div>
+						</div>
+					</a>
+					<a class="dropdown-item" href="#">
+						<div class="notification-content">
+							<div class="icon">
+								<i class="fas fa-exclamation-triangle text-warning border border-warning"></i>
+							</div>
+							<div class="content">
+								<div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+								<div class="notification-time">
+									Yesterday
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item text-center" href="#">View all notifications</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-envelope"></i>
+					<span class="badge badge-pill badge-success notification">7</span>
+				</a>
+				<div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
+					<div class="messages-header">
+						<i class="fa fa-envelope"></i>
+						Messages
+					</div>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">
+						<div class="message-content">
+							<div class="pic">
+								<img src="images/user.jpg" alt="">
+							</div>
+							<div class="content">
+								<div class="message-title">
+									<strong> John doe</strong>
+								</div>
+								<div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+							</div>
+						</div>
+
+					</a>
+					<a class="dropdown-item" href="#">
+						<div class="message-content">
+							<div class="pic">
+								<img src="images/user.jpg" alt="">
+							</div>
+							<div class="content">
+								<div class="message-title">
+									<strong> John doe</strong>
+								</div>
+								<div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+							</div>
+						</div>
+
+					</a>
+					<a class="dropdown-item" href="#">
+						<div class="message-content">
+							<div class="pic">
+								<img src="images/user.jpg" alt="">
+							</div>
+							<div class="content">
+								<div class="message-title">
+									<strong> John doe</strong>
+								</div>
+								<div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+									elit. In totam explicabo
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item text-center" href="#">View all messages</a>
+
+				</div>
+			</div>
+			<div class="dropdown">
+				<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-cog"></i>
+					<span class="badge-sonar"></span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
+					<a class="dropdown-item" href="/account">My Account</a>
+					<a class="dropdown-item" href="/faq">FAQ</a>
+				</div>
+			</div>
+			<div>
+				<a href="/logout">
+					<i class="fa fa-power-off"></i>
+				</a>
+			</div>
+			<div class="pinned-footer">
+				<a href="#">
+					<i class="fas fa-ellipsis-h"></i>
+				</a>
+			</div>
+		</div>
+	</nav>
+
 	{{{body}}}
 </div>
+<!-- page-wrapper -->
 
 <!-- Bootstrap: Latest compiled JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
