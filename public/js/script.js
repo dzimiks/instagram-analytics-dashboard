@@ -10,13 +10,13 @@ $(document).ready(function () {
 			$(this).next(".sidebar-submenu").slideDown(200);
 			$(this).parent().addClass("active");
 		}
-
 	});
 
 	//toggle sidebar
 	$("#toggle-sidebar").click(function () {
 		$(".page-wrapper").toggleClass("toggled");
 	});
+
 	//Pin sidebar
 	$("#pin-sidebar").click(function () {
 		if ($(".page-wrapper").hasClass("pinned")) {
@@ -27,26 +27,25 @@ $(document).ready(function () {
 			$(".page-wrapper").addClass("pinned");
 			$("#sidebar").hover(
 				function () {
-					console.log("mouseenter");
+					// mouseenter
 					$(".page-wrapper").addClass("sidebar-hovered");
 				},
 				function () {
-					console.log("mouseout");
+					// mouseout
 					$(".page-wrapper").removeClass("sidebar-hovered");
 				}
 			)
-
 		}
 	});
 
-
 	//toggle sidebar overlay
-	$("#overlay").click(function () {
+	$(".overlay").click(function () {
 		$(".page-wrapper").toggleClass("toggled");
 	});
 
 	//switch between themes
-	var themes = "default-theme legacy-theme chiller-theme ice-theme cool-theme light-theme";
+	let themes = "default-theme legacy-theme chiller-theme ice-theme cool-theme light-theme";
+
 	$('[data-theme]').click(function () {
 		$('[data-theme]').removeClass("selected");
 		$(this).addClass("selected");
@@ -55,7 +54,8 @@ $(document).ready(function () {
 	});
 
 	// switch between background images
-	var bgs = "bg1 bg2 bg3 bg4";
+	let bgs = "bg1 bg2 bg3 bg4";
+
 	$('[data-bg]').click(function () {
 		$('[data-bg]').removeClass("selected");
 		$(this).addClass("selected");
@@ -82,7 +82,7 @@ $(document).ready(function () {
 			autoHideScrollbar: true,
 			scrollInertia: 300
 		});
-		$(".sidebar-content").addClass("desktop");
 
+		$(".sidebar-content").addClass("desktop");
 	}
 });

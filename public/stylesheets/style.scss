@@ -5,6 +5,9 @@
 $black-color: #333;
 $red-color: #f44336;
 $blue-color: #2196f3;
+$orange-color: #ff9800;
+$green-color: #43a047;
+$purple-color: #7b1fa2;
 
 * {
 	box-sizing: border-box;
@@ -172,4 +175,34 @@ a:hover {
 
 .navbar-toggler.collapsed .bottom-bar {
 	transform: rotate(0);
+}
+
+.bold-number {
+	font-size: 3rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.card {
+	margin: 1rem auto;
+}
+
+.border-top-blue {
+	border-top: 4px solid $blue-color;
+}
+
+.border-top-red {
+	border-top: 4px solid $red-color;
+}
+
+.border-top-orange {
+	border-top: 4px solid $orange-color;
+}
+
+.border-top-green {
+	border-top: 4px solid $green-color;
+}
+
+.border-top-purple {
+	border-top: 4px solid $purple-color;
 }
