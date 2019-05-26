@@ -1,3 +1,5 @@
+const getRandomInt = require('../utils/utils');
+
 module.exports.home = (req, res) => {
 	res.render('home', {
 		meta: {
@@ -7,10 +9,29 @@ module.exports.home = (req, res) => {
 };
 
 module.exports.analyticsOverview = (req, res) => {
+	let posts = [];
+	let stories = [];
+
+	for (let i = 400; i < 1200; i += 100) {
+		posts.push({
+			image: 'https://picsum.photos/' + i + '/' + i + '/?random',
+			likes: getRandomInt(100, 500),
+			comments: getRandomInt(1, 50)
+		});
+
+		stories.push({
+			image: 'https://picsum.photos/' + i + '/' + i + '/?random',
+			seen: getRandomInt(100, 500),
+			impressions: getRandomInt(500, 1000)
+		});
+	}
+
 	res.render('analytics/overview', {
 		meta: {
 			title: 'Analytics Overview'
-		}
+		},
+		posts: posts,
+		stories: stories
 	});
 };
 
@@ -50,6 +71,22 @@ module.exports.analyticsExportsAndReports = (req, res) => {
 	res.render('analytics/exports-and-reports', {
 		meta: {
 			title: 'Analytics Exports And Reports'
+		}
+	});
+};
+
+module.exports.analyticsInsightsPost = (req, res) => {
+	res.render('analytics/insights/post', {
+		meta: {
+			title: 'Analytics Insights Post'
+		}
+	});
+};
+
+module.exports.analyticsInsightsStory = (req, res) => {
+	res.render('analytics/insights/story', {
+		meta: {
+			title: 'Analytics Insights Story'
 		}
 	});
 };

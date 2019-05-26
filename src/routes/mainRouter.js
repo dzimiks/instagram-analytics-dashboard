@@ -19,6 +19,8 @@ router.get('/analytics/engagement', mainController.analyticsEngagement);
 router.get('/analytics/profile-visits', mainController.analyticsProfileVisits);
 router.get('/analytics/hashtags', mainController.analyticsHashtags);
 router.get('/analytics/exports-and-reports', mainController.analyticsExportsAndReports);
+router.get('/analytics/insights/post', mainController.analyticsInsightsPost);
+router.get('/analytics/insights/story', mainController.analyticsInsightsStory);
 
 // Conversations
 router.get('/conversations', mainController.conversations);

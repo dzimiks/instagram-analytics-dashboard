@@ -28,6 +28,7 @@ body {
 	letter-spacing: -.021em;
 	color: $black-color;
 	font-style: normal;
+	background-image: url("../images/bg-home.png");
 }
 
 a {
@@ -205,4 +206,26 @@ a:hover {
 
 .border-top-purple {
 	border-top: 4px solid $purple-color;
+}
+
+.media-slider {
+	.card {
+		max-width: 300px;
+	}
+
+	.card-img-top {
+		max-height: 300px;
+	}
+}
+
+.slick-prev:after {
+	content: "<";
+	color: $black-color;
+	font-size: 30px;
+}
+
+.slick-next:before {
+	content: ">";
+	color: $black-color;
+	font-size: 30px;
 }

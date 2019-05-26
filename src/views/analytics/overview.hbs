@@ -1,6 +1,7 @@
 <!-- page-content  -->
 <main class="page-content pt-2">
 	<div class="overlay"></div>
+
 	<div class="container mb-4">
 		<div class="row">
 			<div class="form-group col-md-12">
@@ -13,10 +14,121 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 text-center">
 				<h2>{{meta.title}}</h2>
+			</div>
+		</div>
+
+		<div class="row row-eq-height">
+			<div class="col-md-3">
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<h5 class="card-title text-center">Total Followers</h5>
+						<hr>
+						<p class="card-subtitle mb-2 text-muted">Current number of your Instagram followers.</p>
+						<h1 class="card-text bold-number">6.4k</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card border-top-red">
+					<div class="card-body">
+						<h5 class="card-title text-center">Impressions</h5>
+						<hr>
+						<p class="card-subtitle mb-2 text-muted">Current number of your Instagram followers.</p>
+						<h1 class="card-text bold-number">21.5k</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card">
+					<div class="card-body border-top-orange">
+						<h5 class="card-title text-center">Reach</h5>
+						<hr>
+						<p class="card-subtitle mb-2 text-muted">Current number of your Instagram followers.</p>
+						<h1 class="card-text bold-number">7.9k</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card border-top-green">
+					<div class="card-body">
+						<h5 class="card-title text-center">Avg. Engagement Rate</h5>
+						<hr>
+						<p class="card-subtitle mb-2 text-muted">Current number of your Instagram followers.</p>
+						<h1 class="card-text bold-number">1.6%</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top-purple">
+					<div class="card-body">
+						<p class="card-title">Most recent media from 24th March, 2019 to 31st March, 2019</p>
+
+						<hr>
+
+						<div class="media-slider">
+							{{#each posts}}
+								<div class="card border-top-purple">
+									<a href="/analytics/insights/post">
+										<img class="card-img-top" src="{{this.image}}">
+									</a>
+									<div class="card-body text-center">
+										<p class="card-text d-inline mr-2">
+											<i class="fa fa-heart"></i>
+											{{this.likes}}
+										</p>
+										<p class="card-text d-inline">
+											<i class="fa fa-comment"></i>
+											{{this.comments}}
+										</p>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top-purple">
+					<div class="card-body">
+						<p class="card-title">Most recent stories from 24th March, 2019 to 31st March, 2019</p>
+
+						<hr>
+
+						<div class="media-slider">
+							{{#each stories}}
+								<div class="card border-top-purple">
+									<a href="/analytics/insights/post">
+										<img class="card-img-top" src="{{this.image}}">
+									</a>
+									<div class="card-body text-center">
+										<p class="card-text d-inline mr-2">
+											<i class="fa fa-eye"></i>
+											{{this.seen}}
+										</p>
+										<p class="card-text d-inline">
+											<i class="fa fa-signal"></i>
+											{{this.impressions}}
+										</p>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
