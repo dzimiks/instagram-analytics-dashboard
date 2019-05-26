@@ -101,3 +101,28 @@ module.exports.toolsInstagramAudit = (req, res) => {
 		}
 	});
 };
+
+module.exports.faq = (req, res) => {
+	res.render('faq', {
+		meta: {
+			title: 'FAQ'
+		}
+	});
+};
+
+module.exports.accountSettings = (req, res) => {
+	res.render('account/settings', {
+		meta: {
+			title: 'Account Settings'
+		}
+	});
+};
+
+
+module.exports.accountSocialProfiles = (req, res) => {
+	res.render('account/social-profiles', {
+		meta: {
+			title: 'Account Social Profiles'
+		}
+	});
+};

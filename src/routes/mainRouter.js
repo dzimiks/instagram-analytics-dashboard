@@ -34,4 +34,11 @@ router.get('/search/hashtags', mainController.searchHashtags);
 // Tools
 router.get('/tools/instagram-audit', mainController.toolsInstagramAudit);
 
+// FAQ
+router.get('/faq', mainController.faq);
+
+// Account
+router.get('/account/settings', mainController.accountSettings);
+router.get('/account/social-profiles', mainController.accountSocialProfiles);
+
 module.exports = router;

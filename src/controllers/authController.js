@@ -13,3 +13,11 @@ module.exports.signup = (req, res) => {
 		}
 	});
 };
+
+module.exports.logout = (req, res) => {
+	res.render('auth/logout', {
+		meta: {
+			title: 'Logout'
+		}
+	});
+};

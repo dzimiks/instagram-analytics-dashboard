@@ -12,5 +12,6 @@ router.all('/*', function (req, res, next) {
 // GET
 router.get('/signin', authController.signin);
 router.get('/signup', authController.signup);
+router.get('/logout', authController.logout);
 
 module.exports = router;
