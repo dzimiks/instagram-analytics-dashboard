@@ -111,7 +111,7 @@
 						<div class="media-slider">
 							{{#each stories}}
 								<div class="card border-top-purple">
-									<a href="/analytics/insights/post">
+									<a href="/analytics/insights/story">
 										<img class="card-img-top" src="{{this.image}}">
 									</a>
 									<div class="card-body text-center">
@@ -129,6 +129,30 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="row my-4" id="followers">
+			<div class="col-md-12 text-center">
+				<h2>Followers</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="followers-chart"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="gained-and-lost-followers-chart"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="followers-growth-chart"></div>
 			</div>
 		</div>
 	</div>

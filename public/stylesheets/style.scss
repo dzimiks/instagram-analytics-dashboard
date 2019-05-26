@@ -229,3 +229,20 @@ a:hover {
 	color: $black-color;
 	font-size: 30px;
 }
+
+.highcharts-credits,
+.highcharts-exporting-group {
+	display: none;
+}
+
+.user-chart {
+	min-height: 500px;
+	min-width: 310px;
+	width: 100%;
+}
+
+.highcharts-tooltip > span {
+	padding: 10px;
+	white-space: normal !important;
+	width: 200px;
+}

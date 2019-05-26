@@ -267,7 +267,8 @@
 	overflow: hidden;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 > a:after {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 	content: "\f105";
@@ -288,26 +289,31 @@
 	transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu {
 	display: none;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu ul {
 	padding: 5px 0;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu li {
 	padding-left: 25px;
 	font-size: 13px;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a,
+sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu li a {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu li a:before {
 	content: "\f111";
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
@@ -322,11 +328,14 @@
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .badge,
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu li a .badge,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2 .sidebar-submenu li a .label {
 	margin-left: auto;
 }
 
-.sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a:after {
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a:after,
+.sidebar-wrapper .sidebar-menu .sidebar-dropdown-2.active > a:after {
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 	right: 15px;
