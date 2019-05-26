@@ -77,3 +77,27 @@ module.exports.publishingTipsAndTricks = (req, res) => {
 		}
 	});
 };
+
+module.exports.searchUsers = (req, res) => {
+	res.render('search/users', {
+		meta: {
+			title: 'Search Users'
+		}
+	});
+};
+
+module.exports.searchHashtags = (req, res) => {
+	res.render('search/hashtags', {
+		meta: {
+			title: 'Search Hashtags'
+		}
+	});
+};
+
+module.exports.toolsInstagramAudit = (req, res) => {
+	res.render('tools/instagram-audit', {
+		meta: {
+			title: 'Tools Instagram Audit'
+		}
+	});
+};

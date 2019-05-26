@@ -27,4 +27,11 @@ router.get('/conversations', mainController.conversations);
 router.get('/publishing/post-scheduler', mainController.publishingPostScheduler);
 router.get('/publishing/tips-and-tricks', mainController.publishingTipsAndTricks);
 
+// Search
+router.get('/search/users', mainController.searchUsers);
+router.get('/search/hashtags', mainController.searchHashtags);
+
+// Tools
+router.get('/tools/instagram-audit', mainController.toolsInstagramAudit);
+
 module.exports = router;
