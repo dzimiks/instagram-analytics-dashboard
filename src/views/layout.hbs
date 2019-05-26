@@ -3,7 +3,7 @@
 <head>
 	<title>Instagram Analytics Dashboard</title>
 
-	<link rel="shortcut icon" href="/images/favicon.png"/>
+	<link rel="shortcut icon" href="/images/instagram-logo.png"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Fonts -->
@@ -40,14 +40,14 @@
 					<img class="img-fluid rounded-circle" src="images/dzimiks.jpg" alt="User picture">
 				</div>
 				<div class="user-info">
-                        <span class="user-name">
-							<strong>dzimiks</strong>
-                        </span>
+					<span class="user-name">
+						<strong>dzimiks</strong>
+					</span>
 					<span class="user-role">Administrator</span>
 					<span class="user-status">
-                            <i class="fa fa-circle"></i>
-                            <span>Online</span>
-                        </span>
+						<i class="fa fa-circle"></i>
+						<span>Online</span>
+					</span>
 				</div>
 			</div>
 			<!-- sidebar-search  -->
@@ -56,9 +56,9 @@
 					<div class="input-group">
 						<input type="text" class="form-control search-menu" placeholder="Search...">
 						<div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
+							<span class="input-group-text">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -318,12 +318,33 @@
 			</div>
 			<div class="dropdown">
 				<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fa fa-cog"></i>
+					<i class="fa fa-palette"></i>
 					<span class="badge-sonar"></span>
 				</a>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
-					<a class="dropdown-item" href="/account">My Account</a>
-					<a class="dropdown-item" href="/faq">FAQ</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuMessage" style="padding: 1rem;">
+					<h4>Theme</h4>
+					<a href="#" data-theme="default-theme" class="dropdown-item theme default-theme selected"></a>
+					<a href="#" data-theme="chiller-theme" class="dropdown-item theme chiller-theme"></a>
+					<a href="#" data-theme="legacy-theme" class="dropdown-item theme legacy-theme"></a>
+					<a href="#" data-theme="ice-theme" class="dropdown-item theme ice-theme"></a>
+					<a href="#" data-theme="cool-theme" class="dropdown-item theme cool-theme"></a>
+					<a href="#" data-theme="light-theme" class="dropdown-item theme light-theme"></a>
+
+					<h4>Background image</h4>
+					<a href="#" data-bg="bg1" class="theme theme-bg selected"></a>
+					<a href="#" data-bg="bg2" class="theme theme-bg"></a>
+					<a href="#" data-bg="bg3" class="theme theme-bg"></a>
+					<a href="#" data-bg="bg4" class="theme theme-bg"></a>
+
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="toggle-bg" checked>
+						<label class="custom-control-label" for="toggle-bg">Toggle background</label>
+					</div>
+
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="toggle-border-radius">
+						<label class="custom-control-label" for="toggle-border-radius">Border radius</label>
+					</div>
 				</div>
 			</div>
 			<div>
