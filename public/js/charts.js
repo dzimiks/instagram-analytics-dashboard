@@ -682,29 +682,27 @@ for (let i = 1000; i < 5000; i += getRandomInt(10, 300)) {
 	});
 }
 
-console.log(JSON.stringify(analytics, null, 4));
-
 let jsonfile = {
-	"jsonarray": analytics
+	"obj": analytics
 };
 
-let labels = jsonfile.jsonarray.map(function (e) {
+let labels = jsonfile.obj.map(function (e) {
 	return e.created_at;
 });
 
-let data = jsonfile.jsonarray.map(function (e) {
+let data = jsonfile.obj.map(function (e) {
 	return e.followers;
 });
 
-let data2 = jsonfile.jsonarray.map(function (e) {
+let data2 = jsonfile.obj.map(function (e) {
 	return e.following;
 });
 
-let data3 = jsonfile.jsonarray.map(function (e) {
+let data3 = jsonfile.obj.map(function (e) {
 	return e.media_count;
 });
 
-let data4 = jsonfile.jsonarray.map(function (e) {
+let data4 = jsonfile.obj.map(function (e) {
 	return e.usertags_count;
 });
 

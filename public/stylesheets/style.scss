@@ -71,6 +71,18 @@ a:hover {
 	}
 }
 
+#back-to-top {
+	bottom: 20px;
+	right: 20px;
+	color: $blue-color;
+	position: fixed;
+	border: none;
+	outline: none;
+	z-index: 999999;
+	display: none;
+	cursor: pointer;
+}
+
 // Navbar
 .navbar {
 	color: $black-color;

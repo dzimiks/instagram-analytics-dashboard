@@ -1,4 +1,19 @@
 $(document).ready(function () {
+	// Back to top button
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 200) {
+			$('#back-to-top').fadeIn();
+		}
+		else {
+			$('#back-to-top').fadeOut();
+		}
+	});
+
+	$('#back-to-top').click(function () {
+		$("html, body").animate({scrollTop: 0}, "slow");
+		return false;
+	});
+
 	// Dropdown menu
 	$(".sidebar-dropdown > a").click(function () {
 		$(".sidebar-submenu").slideUp(200);
