@@ -28,7 +28,7 @@ body {
 	letter-spacing: -.021em;
 	color: $black-color;
 	font-style: normal;
-	background-image: url("../images/bg-home.png");
+	//background-image: url("../images/bg-home.png");
 }
 
 a {
@@ -245,4 +245,9 @@ a:hover {
 	padding: 10px;
 	white-space: normal !important;
 	width: 200px;
+}
+
+.card-description {
+	margin: 30px 20px 0;
+	text-align: center;
 }
