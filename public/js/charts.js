@@ -836,3 +836,55 @@ if ($('#engagement-chart').length) {
 		}]
 	});
 }
+
+if ($('#profile-visits-chart').length) {
+	Highcharts.chart('profile-visits-chart', {
+		chart: {
+			type: "column"
+		},
+
+		title: {
+			text: "Profile Visits of Total Followers"
+		},
+
+		legend: {
+			enabled: false
+		},
+
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: "Followers"
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y}</b></td></tr>',
+			footerFormat: '</table>',
+			shared: true,
+			useHTML: true
+		},
+
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true
+				}
+			}
+		},
+
+		series: [{
+			name: "Followers",
+			color: "#f44336",
+			data: [132, 121, 441, 111, 213, 322, 424]
+		}]
+	});
+}
