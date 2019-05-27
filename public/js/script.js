@@ -137,4 +137,7 @@ $(document).ready(function () {
 			settings: "unslick" // destroys slick
 		}]
 	});
+
+	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="popover"]').popover();
 });

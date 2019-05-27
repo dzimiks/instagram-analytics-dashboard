@@ -263,3 +263,20 @@ a:hover {
 	margin: 30px 20px 0;
 	text-align: center;
 }
+
+.exports-icons {
+	.fa-file-pdf {
+		color: $red-color;
+		font-size: 5rem;
+	}
+
+	.fa-file-excel {
+		color: $green-color;
+		font-size: 5rem;
+	}
+
+	.fa-file-image {
+		color: $blue-color;
+		font-size: 5rem;
+	}
+}
