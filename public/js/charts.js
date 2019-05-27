@@ -888,3 +888,109 @@ if ($('#profile-visits-chart').length) {
 		}]
 	});
 }
+
+if ($('#hashtags-chart').length) {
+	Highcharts.chart('hashtags-chart', {
+		chart: {
+			type: "line"
+		},
+
+		title: {
+			text: "Hashtags of Total Followers"
+		},
+
+		legend: {
+			enabled: false
+		},
+
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: "Followers"
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y}</b></td></tr>',
+			footerFormat: '</table>',
+			shared: true,
+			useHTML: true
+		},
+
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true
+				}
+			}
+		},
+
+		series: [{
+			name: "Followers",
+			color: "#ff9800",
+			data: [132, 121, 441, 111, 213, 322, 124]
+		}]
+	});
+}
+
+let heatmapArray = [];
+
+for (let i = 0; i <= 23; i++) {
+	for (let j = 0; j <= 6; j++) {
+		heatmapArray.push([i, j, getRandomInt(10, 300)]);
+	}
+}
+
+if ($('#best-time-to-post-chart').length) {
+	Highcharts.chart('best-time-to-post-chart', {
+		chart: {
+			type: "heatmap"
+		},
+
+		title: {
+			text: "Best Time to Post"
+		},
+
+		xAxis: {
+			categories: [
+				"12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am",
+				"12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"
+			]
+		},
+
+		yAxis: {
+			categories: ["Sun", "Sat", "Fri", "Thu", "Wed", "Tue", "Mon"],
+			title: null
+		},
+
+		colorAxis: {
+			min: 0,
+			minColor: "#fefefe",
+			maxColor: "#328FFE"
+		},
+
+		tooltip: {
+			formatter: function () {
+				return "<b>" + this.point.value + "</b> interactions at <br><b>" + this.series.xAxis.categories[this.point.x]
+					+ "</b> on <br><b>" + "</b><br><b>" + this.series.yAxis.categories[this.point.y] + "</b>"
+			}
+		},
+
+		series: [{
+			name: "Best Time to Post",
+			borderWidth: 0.5,
+			data: heatmapArray,
+			dataLabels: {
+				enabled: false
+			}
+		}]
+	});
+}
