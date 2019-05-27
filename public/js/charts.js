@@ -672,13 +672,13 @@ if ($('#age-by-gender-chart').length) {
 let analytics = [];
 let cnt = 0;
 
-for (let i = 1000; i < 5000; i += getRandomInt(10, 300)) {
+for (let i = 1000; i < 7000; i += getRandomInt(10, 300)) {
 	analytics.push({
 		followers: i + getRandomInt(0, 100),
 		following: i - getRandomInt(1000, 2000),
 		media_count: getRandomInt(10, 250),
 		usertags_count: getRandomInt(10, 100),
-		created_at: new Date(2019, cnt++, 1)
+		created_at: new Date(2019, cnt++, 6)
 	});
 }
 
@@ -781,6 +781,58 @@ if ($('#reach-chart').length) {
 			tooltip: {
 				valueDecimals: 0
 			}
+		}]
+	});
+}
+
+if ($('#engagement-chart').length) {
+	Highcharts.chart('engagement-chart', {
+		chart: {
+			type: "column"
+		},
+
+		title: {
+			text: "Engagement of Total Followers"
+		},
+
+		legend: {
+			enabled: false
+		},
+
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: "Followers"
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y}</b></td></tr>',
+			footerFormat: '</table>',
+			shared: true,
+			useHTML: true
+		},
+
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true
+				}
+			}
+		},
+
+		series: [{
+			name: "Followers",
+			color: "#43a047",
+			data: [132, 121, 441, 111, 213, 3232, 424]
 		}]
 	});
 }
