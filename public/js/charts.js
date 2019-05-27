@@ -1,4 +1,17 @@
 /**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
  * Returns number with given precision.
  *
  * @param value
@@ -26,434 +39,750 @@ function setNumberPrecision(value, exp) {
 	return +(value[0] + "e" + (value[1] ? (+value[1] - exp) : -exp));
 }
 
-Highcharts.chart('followers-chart', {
-	chart: {
-		type: "line"
-	},
+/**
+ * Make monochrome colors
+ *
+ * @type {Array}
+ */
+const pieColors = (function () {
+	let colors = [];
+	let base = "#328FFE";
 
-	title: {
-		text: "Followers"
-	},
+	for (let i = 0; i < 7; i++) {
+		// Start out with a darkened base color (negative brighten), and end
+		// up with a much brighter color
+		colors.push(Highcharts.Color(base).brighten((i - 3) / 10).get());
+	}
 
-	legend: {
-		enabled: false
-	},
+	return colors;
+}());
 
-	xAxis: {
-		categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
-	},
+/**
+ * Generates random date in given range.
+ *
+ * @param start
+ * @param end
+ * @returns {Date}
+ */
+function randomDate(start, end) {
+	return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
 
-	yAxis: {
+const ageCategories = ["13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
+
+if ($('#followers-chart').length) {
+	Highcharts.chart('followers-chart', {
+		chart: {
+			type: "line"
+		},
+
 		title: {
 			text: "Followers"
-		}
-	},
+		},
 
-	plotOptions: {
-		line: {
-			dataLabels: {
-				enabled: true
-			},
-			enableMouseTracking: true
-		}
-	},
+		legend: {
+			enabled: false
+		},
 
-	series: [{
-		name: "Followers",
-		lineWidth: 3,
-		color: "#328FFE",
-		data: [2089, 2457, 2782, 3055, 3498, 3850, 5286]
-	}]
-});
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
 
-Highcharts.chart('gained-and-lost-followers-chart', {
-	chart: {
-		type: 'column'
-	},
-
-	title: {
-		text: 'Gained and Lost Followers'
-	},
-
-	legend: {
-		enabled: true
-	},
-
-	xAxis: {
-		categories: ['11th Jan', '14th Jan', '18th Jan', '21st Jan', '25th Jan', '28th Jan', '18th Feb']
-	},
-
-	yAxis: {
-		title: {
-			text: 'Followers'
-		}
-	},
-
-	tooltip: {
-		headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-		pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-			'<td style="padding:0"><b>{point.y}</b></td></tr>',
-		footerFormat: '</table>',
-		shared: true,
-		useHTML: true
-	},
-
-	plotOptions: {
-		column: {
-			pointPadding: 0.2,
-			borderWidth: 0,
-			dataLabels: {
-				enabled: true
+		yAxis: {
+			title: {
+				text: "Followers"
 			}
 		},
-		series: {
-			stacking: 'normal'
-		}
-	},
 
-	series: [{
-		name: 'Gained Followers',
-		color: '#328FFE',
-		data: [234, 77, 77, 108, 100, 119, 176]
-
-	}, {
-		name: 'Lost Followers',
-		color: '#F6AF6D',
-		data: [-176, -58, -56, -163, -35, -40, -78]
-	}]
-});
-
-Highcharts.chart('followers-growth-chart', {
-	chart: {
-		type: "column"
-	},
-
-	title: {
-		text: "Growth of Total Followers"
-	},
-
-	legend: {
-		enabled: false
-	},
-
-	xAxis: {
-		categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
-	},
-
-	yAxis: {
-		min: 0,
-		title: {
-			text: "Followers"
-		}
-	},
-
-	tooltip: {
-		headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-		pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-			'<td style="padding:0"><b>{point.y}</b></td></tr>',
-		footerFormat: '</table>',
-		shared: true,
-		useHTML: true
-	},
-
-	plotOptions: {
-		column: {
-			pointPadding: 0.2,
-			borderWidth: 0,
-			dataLabels: {
-				enabled: true
+		plotOptions: {
+			line: {
+				dataLabels: {
+					enabled: true
+				},
+				enableMouseTracking: true
 			}
-		}
-	},
+		},
 
-	series: [{
-		name: "Followers",
-		color: "#328FFE",
-		data: [234, 77, 77, 108, 100, 119, 176]
-	}]
-});
+		series: [{
+			name: "Followers",
+			lineWidth: 3,
+			color: "#328FFE",
+			data: [2089, 2457, 2782, 3055, 3498, 3850, 5286]
+		}]
+	});
+}
 
-Highcharts.chart('followings-chart', {
-	chart: {
-		type: "line"
-	},
+if ($('#gained-and-lost-followers-chart').length) {
+	Highcharts.chart('gained-and-lost-followers-chart', {
+		chart: {
+			type: 'column'
+		},
 
-	title: {
-		text: "Following"
-	},
-
-	legend: {
-		enabled: false
-	},
-
-	xAxis: {
-		categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
-	},
-
-	yAxis: {
 		title: {
-			text: "Following"
-		}
-	},
+			text: 'Gained and Lost Followers'
+		},
 
-	plotOptions: {
-		line: {
-			dataLabels: {
-				enabled: true
+		legend: {
+			enabled: true
+		},
+
+		xAxis: {
+			categories: ['11th Jan', '14th Jan', '18th Jan', '21st Jan', '25th Jan', '28th Jan', '18th Feb']
+		},
+
+		yAxis: {
+			title: {
+				text: 'Followers'
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y}</b></td></tr>',
+			footerFormat: '</table>',
+			shared: true,
+			useHTML: true
+		},
+
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true
+				}
 			},
-			enableMouseTracking: true
-		}
-	},
+			series: {
+				stacking: 'normal'
+			}
+		},
 
-	series: [{
-		name: "Following",
-		color: "#328FFE",
-		lineWidth: 3,
-		data: [2094, 2070, 2001, 2201, 2100, 1995, 3097]
-	}]
-});
+		series: [{
+			name: 'Gained Followers',
+			color: '#328FFE',
+			data: [234, 77, 77, 108, 100, 119, 176]
 
-Highcharts.chart('gender-of-followers-chart', {
-	chart: {
-		plotBackgroundColor: null,
-		plotBorderWidth: null,
-		plotShadow: false,
-		type: "pie"
-	},
+		}, {
+			name: 'Lost Followers',
+			color: '#F6AF6D',
+			data: [-176, -58, -56, -163, -35, -40, -78]
+		}]
+	});
+}
 
-	title: {
-		text: "Gender of Followers"
-	},
+if ($('#followers-growth-chart').length) {
+	Highcharts.chart('followers-growth-chart', {
+		chart: {
+			type: "column"
+		},
 
-	tooltip: {
-		pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
-	},
+		title: {
+			text: "Growth of Total Followers"
+		},
 
-	plotOptions: {
-		pie: {
-			allowPointSelect: true,
-			cursor: "pointer",
-			dataLabels: {
-				enabled: true
-			},
-			showInLegend: true
-		}
-	},
+		legend: {
+			enabled: false
+		},
 
-	series: [{
-		dataLabels: {
-			color: "white",
-			distance: -35,
-			formatter: function () {
-				if (this.percentage !== 0) {
-					return setNumberPrecision(this.percentage, 2) + "%"
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: "Followers"
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y}</b></td></tr>',
+			footerFormat: '</table>',
+			shared: true,
+			useHTML: true
+		},
+
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true
 				}
 			}
 		},
-		name: "Gender of Followers",
-		colorByPoint: true,
-		innerSize: "50%",
-		data: [{
+
+		series: [{
+			name: "Followers",
+			color: "#328FFE",
+			data: [234, 77, 77, 108, 100, 119, 176]
+		}]
+	});
+}
+
+if ($('#followings-chart').length) {
+	Highcharts.chart('followings-chart', {
+		chart: {
+			type: "line"
+		},
+
+		title: {
+			text: "Following"
+		},
+
+		legend: {
+			enabled: false
+		},
+
+		xAxis: {
+			categories: ["11th Jan", "14th Jan", "18th Jan", "21st Jan", "25th Jan", "28th Jan", "18th Feb"]
+		},
+
+		yAxis: {
+			title: {
+				text: "Following"
+			}
+		},
+
+		plotOptions: {
+			line: {
+				dataLabels: {
+					enabled: true
+				},
+				enableMouseTracking: true
+			}
+		},
+
+		series: [{
+			name: "Following",
+			color: "#328FFE",
+			lineWidth: 3,
+			data: [2094, 2070, 2001, 2201, 2100, 1995, 3097]
+		}]
+	});
+}
+
+if ($('#gender-of-followers-chart').length) {
+	Highcharts.chart('gender-of-followers-chart', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: "pie"
+		},
+
+		title: {
+			text: "Gender of Followers"
+		},
+
+		tooltip: {
+			pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+		},
+
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: "pointer",
+				dataLabels: {
+					enabled: true
+				},
+				showInLegend: true
+			}
+		},
+
+		series: [{
+			dataLabels: {
+				color: "white",
+				distance: -35,
+				formatter: function () {
+					if (this.percentage !== 0) {
+						return setNumberPrecision(this.percentage, 2) + "%"
+					}
+				}
+			},
+			name: "Gender of Followers",
+			colorByPoint: true,
+			innerSize: "50%",
+			data: [{
+				name: "Male",
+				color: "#328FFE",
+				y: 34.4
+			}, {
+				name: "Female",
+				color: "#F6AF6D",
+				y: 65.6
+			}],
+		}]
+	});
+}
+
+if ($('#countries-map-chart').length) {
+	Highcharts.chart('countries-map-chart', {
+		chart: {
+			map: "worldMap"
+		},
+
+		title: {
+			text: "Countries of Followers"
+		},
+
+		mapNavigation: {
+			enabled: false,
+			enableDoubleClickZoomTo: false
+		},
+
+		colorAxis: {
+			min: 1,
+			max: 1000,
+			type: "logarithmic"
+		},
+
+		series: [{
+			data: [
+				["rs", 1000],
+				["us", 830],
+				["in", 49],
+				["ba", 32],
+				["id", 34],
+				["me", 323],
+				["hr", 424],
+				["ng", 4334],
+				["it", 4],
+				["ru", 5]
+			],
+			// joinBy: ["iso-a2", "countryCode"],
+			name: "Countries of Followers",
+			states: {
+				hover: {
+					color: "#e53935"
+				}
+			},
+			tooltip: {
+				pointFormat: "{point.name}: {point.value} followers"
+			}
+		}]
+	});
+}
+
+if ($('#cities-chart').length) {
+	Highcharts.chart('cities-chart', {
+		chart: {
+			type: "bar"
+		},
+
+		title: {
+			text: "Cities of Followers"
+		},
+
+		xAxis: {
+			categories: ["Belgrade", "NYC", "Madrid", "Paris", "Novi Sad"]
+		},
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: null
+			}
+		},
+
+		tooltip: {
+			pointFormat: "{series.name}: {point.y} <b>({point.percentage:.1f} %)</b>"
+		},
+
+		plotOptions: {
+			bar: {
+				dataLabels: {
+					enabled: true
+				}
+			}
+		},
+
+		legend: {
+			enabled: false
+		},
+
+		series: [{
+			color: "#328FFE",
+			name: "City",
+			data: [597, 203, 165, 89, 12]
+		}]
+	});
+}
+
+if ($('#privacy-chart').length) {
+	Highcharts.chart('privacy-chart', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: "pie"
+		},
+
+		title: {
+			text: "Privacy of Followers"
+		},
+
+		tooltip: {
+			pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+		},
+
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: "pointer",
+				dataLabels: {
+					enabled: true
+				},
+				showInLegend: true
+			}
+		},
+
+		series: [{
+			dataLabels: {
+				color: "white",
+				distance: -35,
+				formatter: function () {
+					if (this.percentage !== 0) {
+						return setNumberPrecision(this.percentage, 2) + "%"
+					}
+				}
+			},
+			name: "Privacy of Followers",
+			colorByPoint: true,
+			innerSize: "50%",
+			data: [{
+				name: "Private",
+				color: "#328FFE",
+				y: 53.4
+			}, {
+				name: "Public",
+				color: "#F6AF6D",
+				y: 46.6
+			}],
+		}]
+	});
+}
+
+if ($('#business-chart').length) {
+	Highcharts.chart('business-chart', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: "pie"
+		},
+
+		title: {
+			text: "Business vs Non Business Account"
+		},
+
+		tooltip: {
+			pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+		},
+
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: "pointer",
+				dataLabels: {
+					enabled: true
+				},
+				showInLegend: true
+			}
+		},
+
+		series: [{
+			dataLabels: {
+				color: "white",
+				distance: -35,
+				formatter: function () {
+					if (this.percentage !== 0) {
+						return setNumberPrecision(this.percentage, 2) + "%"
+					}
+				}
+			},
+			name: "Business vs Non Business Account",
+			colorByPoint: true,
+			innerSize: "50%",
+			data: [{
+				name: "Business Accounts",
+				color: "#328FFE",
+				y: 63.2
+			}, {
+				name: "Non Business Accounts",
+				color: "#F6AF6D",
+				y: 36.8
+			}],
+		}]
+	});
+}
+
+if ($('#age-chart').length) {
+	Highcharts.chart('age-chart', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: "pie"
+		},
+
+		title: {
+			text: "Audience Age"
+		},
+
+		tooltip: {
+			pointFormat: "{series.name}: {point.y} <b>({point.percentage:.1f} %)</b>"
+		},
+
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: "pointer",
+				colors: pieColors,
+				dataLabels: {
+					enabled: true
+				},
+				showInLegend: true
+			}
+		},
+
+		series: [{
+			dataLabels: {
+				color: "white",
+				distance: -35
+			},
+			name: "Audience Age",
+			colorByPoint: true,
+			innerSize: "50%",
+			data: [{
+				name: "13-17",
+				y: 371
+			}, {
+				name: "18-24",
+				y: 527
+			}, {
+				name: "25-34",
+				y: 509
+			}, {
+				name: "35-44",
+				y: 107
+			}, {
+				name: "45-54",
+				y: 129
+			}, {
+				name: "55-64",
+				y: 106
+			}, {
+				name: "65+",
+				y: 31
+			}]
+		}]
+	});
+}
+
+if ($('#age-by-gender-chart').length) {
+	Highcharts.chart('age-by-gender-chart', {
+		chart: {
+			type: "bar"
+		},
+
+		title: {
+			text: "Audience Age by Gender"
+		},
+
+		xAxis: [{
+			categories: ageCategories,
+			reversed: false,
+			labels: {
+				step: 1
+			}
+		}, { // Mirror axis on right side
+			opposite: true,
+			reversed: false,
+			categories: ageCategories,
+			linkedTo: 0,
+			labels: {
+				step: 1
+			}
+		}],
+
+		yAxis: {
+			title: {
+				text: null
+			},
+			labels: {
+				formatter: function () {
+					return Math.abs(this.value)
+				}
+			}
+		},
+
+		plotOptions: {
+			series: {
+				stacking: "normal"
+			},
+			bar: {
+				dataLabels: {
+					enabled: true,
+					formatter: function () {
+						return Math.abs(this.point.y);
+					}
+				}
+			}
+		},
+
+		tooltip: {
+			formatter: function () {
+				return "<b>" + this.series.name + ", age " + this.point.category + "</b><br/>" +
+					"Population: " + setNumberPrecision(Math.abs(this.point.y), 0)
+			}
+		},
+
+		series: [{
 			name: "Male",
 			color: "#328FFE",
-			y: 34.4
+			data: [
+				-351,
+				-559,
+				-449,
+				-109,
+				-143,
+				-146,
+				-65
+			]
 		}, {
 			name: "Female",
 			color: "#F6AF6D",
-			y: 65.6
-		}],
-	}]
+			data: [
+				371,
+				527,
+				509,
+				107,
+				129,
+				106,
+				31
+			]
+		}]
+	});
+}
+
+let analytics = [];
+let cnt = 0;
+
+for (let i = 1000; i < 5000; i += getRandomInt(10, 300)) {
+	analytics.push({
+		followers: i + getRandomInt(0, 100),
+		following: i - getRandomInt(1000, 2000),
+		media_count: getRandomInt(10, 250),
+		usertags_count: getRandomInt(10, 100),
+		created_at: new Date(2019, cnt++, 1)
+	});
+}
+
+console.log(JSON.stringify(analytics, null, 4));
+
+let jsonfile = {
+	"jsonarray": analytics
+};
+
+let labels = jsonfile.jsonarray.map(function (e) {
+	return e.created_at;
 });
 
-Highcharts.chart('countries-map-chart', {
-	chart: {
-		map: "worldMap"
-	},
+let data = jsonfile.jsonarray.map(function (e) {
+	return e.followers;
+});
 
-	title: {
-		text: "Countries of Followers"
-	},
+let data2 = jsonfile.jsonarray.map(function (e) {
+	return e.following;
+});
 
-	mapNavigation: {
-		enabled: false,
-		enableDoubleClickZoomTo: false
-	},
+let data3 = jsonfile.jsonarray.map(function (e) {
+	return e.media_count;
+});
 
-	colorAxis: {
-		min: 1,
-		max: 1000,
-		type: "logarithmic"
-	},
+let data4 = jsonfile.jsonarray.map(function (e) {
+	return e.usertags_count;
+});
 
-	series: [{
-		data: [
-			["rs", 1000],
-			["us", 830],
-			["in", 49],
-			["ba", 32],
-			["id", 34],
-			["me", 323],
-			["hr", 424],
-			["ng", 4334],
-			["it", 4],
-			["ru", 5]
-		],
-		// joinBy: ["iso-a2", "countryCode"],
-		name: "Countries of Followers",
-		states: {
-			hover: {
-				color: "#e53935"
-			}
+let followers_data = [];
+let following_data = [];
+let media_count_data = [];
+let usertags_count_data = [];
+
+for (let i = 0; i < data.length; i++) {
+	followers_data.push([Date.parse(labels[i]), data[i]]);
+	following_data.push([Date.parse(labels[i]), data2[i]]);
+	media_count_data.push([Date.parse(labels[i]), data3[i]]);
+	usertags_count_data.push([Date.parse(labels[i]), data4[i]]);
+}
+
+if ($('#reach-chart').length) {
+	Highcharts.stockChart('reach-chart', {
+		rangeSelector: {
+			selected: 4
 		},
-		tooltip: {
-			pointFormat: "{point.name}: {point.value} followers"
-		}
-	}]
-});
-
-Highcharts.chart('cities-chart', {
-	chart: {
-		type: "bar"
-	},
-
-	title: {
-		text: "Cities of Followers"
-	},
-
-	xAxis: {
-		categories: ["Belgrade", "NYC", "Madrid", "Paris", "Novi Sad"]
-	},
-
-	yAxis: {
-		min: 0,
 		title: {
-			text: null
-		}
-	},
-
-	tooltip: {
-		pointFormat: "{series.name}: {point.y} <b>({point.percentage:.1f} %)</b>"
-	},
-
-	plotOptions: {
-		bar: {
-			dataLabels: {
-				enabled: true
-			}
-		}
-	},
-
-	legend: {
-		enabled: false
-	},
-
-	series: [{
-		color: "#328FFE",
-		name: "City",
-		data: [597, 203, 165, 89, 12]
-	}]
-});
-
-Highcharts.chart('privacy-chart', {
-	chart: {
-		plotBackgroundColor: null,
-		plotBorderWidth: null,
-		plotShadow: false,
-		type: "pie"
-	},
-
-	title: {
-		text: "Privacy of Followers"
-	},
-
-	tooltip: {
-		pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
-	},
-
-	plotOptions: {
-		pie: {
-			allowPointSelect: true,
-			cursor: "pointer",
-			dataLabels: {
-				enabled: true
+			text: 'Followers vs Following'
+		},
+		legend: {
+			enabled: true,
+			layout: 'horizontal'
+		},
+		plotOptions: {
+			series: {
+				marker: {
+					radius: 5,
+					enabled: true
+				},
+				allowPointSelect: true
 			},
-			showInLegend: true
-		}
-	},
-
-	series: [{
-		dataLabels: {
-			color: "white",
-			distance: -35,
-			formatter: function () {
-				if (this.percentage !== 0) {
-					return setNumberPrecision(this.percentage, 2) + "%"
-				}
+			line: {
+				dataLabels: {
+					enabled: true
+				},
+				enableMouseTracking: true
 			}
 		},
-		name: "Privacy of Followers",
-		colorByPoint: true,
-		innerSize: "50%",
-		data: [{
-			name: "Private",
-			color: "#328FFE",
-			y: 53.4
-		}, {
-			name: "Public",
-			color: "#F6AF6D",
-			y: 46.6
-		}],
-	}]
-});
-
-Highcharts.chart('business-chart', {
-	chart: {
-		plotBackgroundColor: null,
-		plotBorderWidth: null,
-		plotShadow: false,
-		type: "pie"
-	},
-
-	title: {
-		text: "Business vs Non Business Account"
-	},
-
-	tooltip: {
-		pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
-	},
-
-	plotOptions: {
-		pie: {
-			allowPointSelect: true,
-			cursor: "pointer",
-			dataLabels: {
-				enabled: true
+		series: [{
+			name: 'Followers',
+			data: followers_data,
+			lineWidth: 3,
+			color: '#e53935',
+			tooltip: {
+				valueDecimals: 0
 			},
-			showInLegend: true
-		}
-	},
-
-	series: [{
-		dataLabels: {
-			color: "white",
-			distance: -35,
-			formatter: function () {
-				if (this.percentage !== 0) {
-					return setNumberPrecision(this.percentage, 2) + "%"
-				}
+			marker: {
+				enabled: true,
+				radius: 3
 			}
-		},
-		name: "Business vs Non Business Account",
-		colorByPoint: true,
-		innerSize: "50%",
-		data: [{
-			name: "Business Accounts",
-			color: "#328FFE",
-			y: 63.2
 		}, {
-			name: "Non Business Accounts",
-			color: "#F6AF6D",
-			y: 36.8
-		}],
-	}]
-});
+			name: 'Following',
+			data: following_data,
+			lineWidth: 3,
+			color: '#1565c0',
+			tooltip: {
+				valueDecimals: 0
+			}
+		}, {
+			name: 'Media Count',
+			data: media_count_data,
+			lineWidth: 3,
+			color: '#00c853',
+			tooltip: {
+				valueDecimals: 0
+			}
+		}, {
+			name: 'Usertags Count',
+			data: usertags_count_data,
+			lineWidth: 3,
+			color: '#ff6f00',
+			tooltip: {
+				valueDecimals: 0
+			}
+		}]
+	});
+}
