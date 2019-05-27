@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="container">
-		<div class="row">
+		<div class="row my-4">
 			<div class="col-md-12 text-center">
 				<h2>{{meta.title}}</h2>
 			</div>
@@ -73,9 +73,7 @@
 				<div class="card border-top-purple">
 					<div class="card-body">
 						<p class="card-title">Most recent media from 24th March, 2019 to 31st March, 2019</p>
-
 						<hr>
-
 						<div class="media-slider">
 							{{#each posts}}
 								<div class="card border-top-purple">
@@ -105,9 +103,7 @@
 				<div class="card border-top-purple">
 					<div class="card-body">
 						<p class="card-title">Most recent stories from 24th March, 2019 to 31st March, 2019</p>
-
 						<hr>
-
 						<div class="media-slider">
 							{{#each stories}}
 								<div class="card border-top-purple">
@@ -140,19 +136,81 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div id="followers-chart"></div>
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div id="followers-chart"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
-				<div id="gained-and-lost-followers-chart"></div>
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div id="gained-and-lost-followers-chart"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
-				<div id="followers-growth-chart"></div>
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div id="followers-growth-chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div id="followings-chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row my-4" id="gender">
+			<div class="col-md-12 text-center">
+				<h2>Gender of Followers</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div id="gender-of-followers-chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row my-4" id="country">
+			<div class="col-md-12 text-center">
+				<h2>Countries of Followers</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top-blue">
+					<div class="card-body">
+						<div class="row text-center">
+							{{#each countries}}
+								<div class="col-md-4 col-6">
+									<h1>{{ this.percentage }}%</h1>
+									<h4>{{ this.name }}</h4>
+									<p>({{ this.followers }} followers)</p>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

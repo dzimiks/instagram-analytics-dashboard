@@ -1,4 +1,17 @@
-const getRandomInt = require('../utils/utils');
+// const getRandomInt = require('../utils/utils');
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 module.exports.home = (req, res) => {
 	res.render('home', {
@@ -11,6 +24,43 @@ module.exports.home = (req, res) => {
 module.exports.analyticsOverview = (req, res) => {
 	let posts = [];
 	let stories = [];
+	let countries = [{
+		name: 'Serbia',
+		percentage: 70.6,
+		followers: 1318
+	}, {
+		name: 'United States',
+		percentage: 15.9,
+		followers: 297
+	}, {
+		name: 'India',
+		percentage: 7.8,
+		followers: 145
+	}, {
+		name: 'Bosnia and Herzegovina',
+		percentage: 2.6,
+		followers: 48
+	}, {
+		name: 'Indonesia',
+		percentage: 1.7,
+		followers: 31
+	}, {
+		name: 'Montenegro',
+		percentage: 0.8,
+		followers: 17
+	}, {
+		name: 'Croatia',
+		percentage: 0.3,
+		followers: 6
+	}, {
+		name: 'Nigeria',
+		percentage: 0.2,
+		followers: 5
+	}, {
+		name: 'Italy',
+		percentage: 0.1,
+		followers: 3
+	}];
 
 	for (let i = 400; i < 1200; i += 100) {
 		posts.push({
@@ -31,7 +81,8 @@ module.exports.analyticsOverview = (req, res) => {
 			title: 'Analytics Overview'
 		},
 		posts: posts,
-		stories: stories
+		stories: stories,
+		countries: countries
 	});
 };
 
