@@ -115,6 +115,26 @@ $(document).ready(function () {
 		$(".sidebar-content").addClass("desktop");
 	}
 
+	// FullCalendar
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title,addEventButton',
+			right: 'month,agendaWeek,agendaDay,listMonth'
+		},
+		selectable: true,
+		// selectHelper: true,
+		editable: true,
+		// defaultTimedEventDuration: '00:30:00',
+		forceEventDuration: true,
+		firstDay: 1,
+		timeFormat: 'HH:mm',
+		events: 'https://fullcalendar.io/demo-events.json',
+		eventColor: '#1565c0',
+		eventLimit: true, // allow "more" link when too many events
+		themeSystem: 'bootstrap4'
+	});
+
 	$(".media-slider").slick({
 		arrows: false,
 		dots: true,
