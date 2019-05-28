@@ -1,0 +1,42 @@
+[
+	{
+		"hashtag": "travel",
+		"followers": 137644,
+		"image": "https://picsum.photos/200/?random"
+	},
+	{
+		"hashtag": "traveling",
+		"followers": 171231,
+		"image": "https://picsum.photos/300/?random"
+	},
+	{
+		"hashtag": "travelguide",
+		"followers": 41442344,
+		"image": "https://picsum.photos/400/?random"
+	},
+	{
+		"hashtag": "books",
+		"followers": 1343441,
+		"image": "https://picsum.photos/500/?random"
+	},
+	{
+		"hashtag": "belgrade",
+		"followers": 1223220,
+		"image": "https://picsum.photos/600/?random"
+	},
+	{
+		"hashtag": "python",
+		"followers": 944493,
+		"image": "https://picsum.photos/700/?random"
+	},
+	{
+		"hashtag": "cpp",
+		"followers": 129242313,
+		"image": "https://picsum.photos/800/?random"
+	},
+	{
+		"hashtag": "java",
+		"followers": 9234421,
+		"image": "https://picsum.photos/900/?random"
+	}
+]

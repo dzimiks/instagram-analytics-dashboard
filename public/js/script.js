@@ -160,4 +160,44 @@ $(document).ready(function () {
 
 	$('[data-toggle="tooltip"]').tooltip();
 	$('[data-toggle="popover"]').popover();
+
+	$.get('https://api.myjson.com/bins/7l5ev', function (data) {
+		$("#search_input").typeahead({
+			source: data,
+			displayText: (item) => {
+				const html = '<div class="row align-items-center h-100">' +
+					'<div class="col-4">' +
+					'<img src="' + item.image + '" class="img-fluid rounded-circle mx-auto" style="width: 80px;">' +
+					'</div>' +
+					'<div class="col-8">' +
+					'<h3>@' + item.username + '</h3>' +
+					'<p class="small">' + item.followers + ' followers</p>' +
+					'</div>' +
+					'</div>' +
+					'<hr>';
+				return html;
+			},
+			items: 3
+		});
+	}, 'json');
+
+	$.get('https://api.myjson.com/bins/pcxtj', function (data) {
+		$("#search_input_2").typeahead({
+			source: data,
+			displayText: (item) => {
+				const html = '<div class="row align-items-center h-100">' +
+					'<div class="col-4">' +
+					'<img src="' + item.image + '" class="img-fluid rounded-circle mx-auto" style="width: 80px;">' +
+					'</div>' +
+					'<div class="col-8">' +
+					'<h3>#' + item.hashtag + '</h3>' +
+					'<p class="small">' + item.followers + ' followers</p>' +
+					'</div>' +
+					'</div>' +
+					'<hr>';
+				return html;
+			},
+			items: 3
+		});
+	}, 'json');
 });
