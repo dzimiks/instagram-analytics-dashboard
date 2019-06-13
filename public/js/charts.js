@@ -320,50 +320,51 @@ if ($('#gender-of-followers-chart').length) {
 }
 
 if ($('#countries-map-chart').length) {
-	Highcharts.chart('countries-map-chart', {
-		chart: {
-			map: "worldMap"
-		},
+	$.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population-density.json', (data) => {
+		// Prevent logarithmic errors in color calculation
+		$.each(data, () => {
+			this.value = (this.value < 1 ? 1 : this.value);
+		});
 
-		title: {
-			text: "Countries of Followers"
-		},
-
-		mapNavigation: {
-			enabled: false,
-			enableDoubleClickZoomTo: false
-		},
-
-		colorAxis: {
-			min: 1,
-			max: 1000,
-			type: "logarithmic"
-		},
-
-		series: [{
-			data: [
-				["rs", 1000],
-				["us", 830],
-				["in", 49],
-				["ba", 32],
-				["id", 34],
-				["me", 323],
-				["hr", 424],
-				["ng", 4334],
-				["it", 4],
-				["ru", 5]
-			],
-			// joinBy: ["iso-a2", "countryCode"],
-			name: "Countries of Followers",
-			states: {
-				hover: {
-					color: "#e53935"
-				}
+		// Initiate the chart
+		Highcharts.mapChart('countries-map-chart', {
+			chart: {
+				map: 'custom/world'
 			},
-			tooltip: {
-				pointFormat: "{point.name}: {point.value} followers"
-			}
-		}]
+
+			title: {
+				text: 'Countries of Followers'
+			},
+
+			subtitle: {
+				text: 'Zoom in on country by double click.'
+			},
+
+			mapNavigation: {
+				enabled: true,
+				enableDoubleClickZoomTo: true
+			},
+
+			colorAxis: {
+				min: 1,
+				max: 1000,
+				type: 'logarithmic'
+			},
+
+			series: [{
+				data: data,
+				joinBy: ['iso-a3', 'code3'],
+				name: 'Countries of Followers',
+				states: {
+					hover: {
+						color: '#F6AF6D'
+					}
+				},
+				tooltip: {
+					valueSuffix: ' followers'
+				}
+			}]
+		});
 	});
 }
 
