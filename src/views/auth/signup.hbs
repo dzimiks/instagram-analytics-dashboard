@@ -6,40 +6,39 @@
 					<h5 class="card-title text-center">Sign Up</h5>
 					<div class="row align-items-center h-100">
 						<div class="col-md-6">
-							<form class="form-signin">
+							<form class="form-signin" id="form-signup">
 								<div class="form-label-group">
 									<input type="text" id="firstNameSignup" class="form-control" name="firstNameSignup"
 										   placeholder="First name"
-										   required autofocus>
+										   autofocus>
 									<label for="firstNameSignup">First name</label>
 								</div>
 
 								<div class="form-label-group">
 									<input type="text" id="lastNameSignup" class="form-control" name="lastNameSignup"
 										   placeholder="Last name"
-										   required autofocus>
+										   autofocus>
 									<label for="lastNameSignup">Last name</label>
 								</div>
 
 								<div class="form-label-group">
 									<input type="text" id="usernameSignup" name="usernameSignup" class="form-control"
 										   placeholder="Username"
-										   required autofocus>
+										   autofocus>
 									<label for="usernameSignup">Username</label>
 								</div>
 
 								<div class="form-label-group">
 									<input type="email" id="emailSignup" name="emailSignup" class="form-control"
 										   placeholder="Email address"
-										   required autofocus>
+										   autofocus>
 									<label for="emailSignup">Email address</label>
 								</div>
 
 								<div class="form-label-group mb-5">
 									<input type="password" id="passwordSignup" name="passwordSignup"
 										   class="form-control"
-										   placeholder="Password"
-										   required>
+										   placeholder="Password">
 									<label for="passwordSignup">Password</label>
 								</div>
 
@@ -49,16 +48,14 @@
 										I would like to hear about Instagram Analytics updates and special offers.
 									</label>
 
-									<input type="checkbox" class="custom-control-input" id="customCheck2">
-									<label class="custom-control-label" for="customCheck2">
-										I accept the Terms of use and subscription.
+									<input type="checkbox" class="custom-control-input" id="customCheck2" >
+									<label class="custom-control-label" for="customCheck2" id="tos-check">
+										I accept the <a href="#">Terms of Use</a> and subscription.
 									</label>
 								</div>
-								<a href="/">
-									<button class="btn btn-lg btn-primary btn-block text-uppercase mb-3" type="button">
-										Sign Up
-									</button>
-								</a>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase mb-3" type="submit">
+									Sign Up
+								</button>
 								<p>Already have an account? <a href="/auth/signin">Sign in</a></p>
 							</form>
 						</div>
