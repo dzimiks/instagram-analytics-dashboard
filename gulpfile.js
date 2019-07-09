@@ -9,7 +9,7 @@ gulp.task('sass', function () {
 });
 
 // List all tasks that should be done on restart
-gulp.task('watch', ['sass']);
+gulp.task('watch', gulp.series('sass'));
 
 gulp.task('nodemon', function () {
 	return nodemon({
